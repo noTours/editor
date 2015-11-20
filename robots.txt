@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /exec/
+Disallow: /inc/
+Disallow: /projects/
+Disallow: /tmp_image/
+Disallow: /tmp_sound/
+Disallow: /tmp_kml/
+Disallow: /mailing/

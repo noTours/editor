@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.escoitar.org/notours"
+        xmlns="http://www.escoitar.org/notours">
+
+    <xs:element name="atributes" type="listadoAtributos"/>
+    
+    <xs:element name="file" type="xs:string"/>
+    
+    <xs:element name="folder" type="xs:string"/>
+    
+    <xs:element name="angle" type="dosAngulos"/>
+    
+    <xs:element name="volume">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    
+	 <xs:element name="level">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    
+	 <xs:element name="milestone">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="soundsource">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:choice>
+      				<xs:element ref="file" maxOccurs="1" minOccurs="1"/>
+      				<xs:element ref="folder" maxOccurs="1" minOccurs="1"/>
+    			</xs:choice>
+                <xs:element ref="volume" maxOccurs="1" minOccurs="0"/>
+                <xs:element ref="angle" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="soundpoint">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="atributes" maxOccurs="1" minOccurs="1"/>
+                <xs:element ref="soundsource" maxOccurs="1" minOccurs="1"/>
+                <xs:element ref="level" maxOccurs="1" minOccurs="1"/>
+                <xs:element ref="milestone" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="soundscape">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="atributes" maxOccurs="1" minOccurs="1"/>
+                <xs:element ref="soundsource" maxOccurs="4" minOccurs="4"/>
+                <xs:element ref="level" maxOccurs="1" minOccurs="1"/>
+                <xs:element ref="milestone" maxOccurs="1" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="atributo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="speaker"/>
+            <xs:enumeration value="fadein"/>
+            <xs:enumeration value="fadeout"/>
+            <xs:enumeration value="loop"/>
+            <xs:enumeration value="vibrate"/>
+            <xs:enumeration value="playout"/>
+            <xs:enumeration value="pauseout"/>
+            <xs:enumeration value="stopout"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="listadoAtributos">
+        <xs:list itemType="atributo"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="angulo">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="360"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="listadoAngulos">
+        <xs:list itemType="angulo"/>
+    </xs:simpleType>
+    <xs:simpleType name="dosAngulos">
+        <xs:restriction base="listadoAngulos">
+            <xs:length value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>

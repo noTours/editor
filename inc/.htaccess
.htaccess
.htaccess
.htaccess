@@ -1,0 +1,14 @@
+# Protect .htaccess file
+<files ~ "^.*\.([Hh][Tt][Aa])">
+	order allow,deny
+	deny from all
+</files>
+
+# wp-config limited access
+<files config.php>
+	order allow,deny
+	deny from all
+</files>
+
+# disable directory browsing
+Options All -Indexes

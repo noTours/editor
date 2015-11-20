@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	 	<script type="text/javascript" charset="utf-8" src="../inc/js/jquery-1.4.4.min.js"></script>
+	 	<script type="text/javascript" charset="utf-8" src="../inc/js/noTours-html.min.js"></script>
+	 	<script type="text/javascript" charset="utf-8" src="../inc/js/noTours.min.js"></script>
+	 	<link rel="stylesheet" type="text/css" media="screen"  href="../inc/css/noTours-iframe.css"/>
+		<script language="javascript">
+		//<![CDATA[
+			var noTours = parent.window.noTours;
+			$(document).ready(function() {
+				$("body").append(upload_icon_html());
+				$("#process_icon").submit(function() {
+					var value = $("#icon").attr("value");
+					if (value!="") {
+						var suf = getsSufix(value);
+						if ((suf=="jpeg") || (suf=="jpg") || (suf=="png") || (suf=="gif")) {
+							$("#process_icon").hide()
+							$("#loading").show()
+							return true;
+						} else {
+							alert(noTours.write.wrong_icon_sufix);
+							return false;
+						}
+					} else {
+						alert(noTours.write.empty_field);
+						return false;
+					}
+				});
+			});
+		//]]>
+	</script>
+	</head>
+	<body>
+	</body>
+</html>

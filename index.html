@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<title>NoTours editor 1.10</title>
+    	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    	<meta name="description" content="Online editor to create NoTours soundwalks for your android device" />
+		<meta name="keywords" content="Augmented Aurality, Superimposed Reallity, Android, NoTours, Editor, Soundwalk, Soundscape, Google Maps API, GPS, Sound" />
+    	<meta name="robots" content="noindex, nofollow">
+	 	<link rel="icon" href="favicon.ico" />
+    	<link rel="stylesheet" type="text/css" media="screen" href="inc/css/noTours.css" />
+    	<!--
+    	<link rel="stylesheet" type="text/css" media="handheld" href="inc/css/noTours-mobile.css"/>
+    	<link rel="stylesheet" type="text/css" media="screen" href="inc/css/noTours-developing.css"/>
+    	 -->
+	 	<script type="text/javascript" charset="utf-8" src="inc/js/jquery-1.4.4.min.js"></script>
+	 	<script type="text/javascript" charset="utf-8" src="inc/js/jquery.scrollTo.min.js"></script>
+	 	<script type="text/javascript" charset="utf-8" src="inc/js/noTours-html.js"></script>
+	 	<script type="text/javascript" charset="utf-8" src="inc/js/noTours-gmaps.min.js"></script>
+	 	<script type="text/javascript" charset="utf-8" src="inc/js/noTours-cookie.min.js"></script>
+	 	<script type="text/javascript" charset="utf-8" src="inc/js/noTours-objects.js"></script>
+	 	<script type="text/javascript" charset="utf-8" src="inc/js/noTours.min.js"></script>
+	 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script type="text/javascript" charset="utf-8">
+		//<![CDATA[
+			// global variables
+			noTours = new NotoursInterface();
+			// functions
+			$(document).ready(function(){
+				checkCookie();
+				noTours.initialize();
+			});
+		//]]>
+		</script>
+	</head>
+	<body>
+		<header>
+		</header>
+		<section id="navigation">
+			<div class="nav left"></div>
+			<div class="wrapper all">
+				<div id="menu">
+				</div><!-- menu -->
+				<div id="elements">
+					<ul id="projects">
+					</ul><!-- projects -->
+					<ul id="objects">
+					</ul><!-- objects -->
+				</div><!-- elements -->
+			</div>
+		</section>
+		<section id="workarea">
+			<div id="map"></div>
+			<div id="floatingBox" class="all">
+				<div class="wrapper">
+					<div class="nav"><span class="hide">x</span></div>
+					<div class="content"></div>
+				</div>
+			</div>
+		</section>
+		<section id="terminal">
+			<div class="nav up"></div>
+				<div class="resize"></div>
+				<div id="history"></div>
+				<form id="send" method="post" action="#">
+					<label for="pass">command line:</label><input name="command" id="command" value="" type="text">
+					<input value="send" type="submit" class="submit" >
+				</form>
+		</section>
+	</body>
+	</body>
+</html>

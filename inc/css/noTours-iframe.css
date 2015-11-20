@@ -1,0 +1,48 @@
+body{
+	margin: 0;
+	font-size: 0.88em;
+	font-family: helvetica, verdana;
+	letter-spacing: 0.03em;
+	background-color: #f8f8f8;
+}
+body.sound {
+	margin-top: 8px;
+}
+h4 {
+	width: 100px;
+	text-align: center;
+	font-size: 0.88em;
+}
+#loading, #loading span {
+	display: none;
+	text-align: center;
+}
+#loading img {
+	width: 28px;
+	height: 28px;
+	margin-top: 10px;
+}
+form {
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	margin: 2px 9px;
+	height: 42px;
+	width: 82px;
+}
+.file {
+	border: 1px solid #777;
+	background: #f8f8f8;
+	position: absolute;
+	top: 0;
+	left: -153px;
+}
+.submit {
+	border: 1px solid #777;
+	background: #fff;
+	height: 20px;
+	width: 74px;
+	position: absolute;
+	top: 22px;
+	left: 3px;
+}
