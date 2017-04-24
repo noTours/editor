@@ -464,6 +464,7 @@ function db_insert_query($link=FALSE, $table, $data) {
 	global $write;
 	if (is_resource($link)) {
 		// build the sql query
+		$dosql = "";
 		$query_keys = array_keys($data);
 		$query_values = array_values($data);
 		$dosql .= "INSERT INTO `".$table."` (`".$query_keys[0]."`";
