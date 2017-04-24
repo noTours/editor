@@ -31,14 +31,14 @@
 	if ( (isset($user)) && (isset($pass)) && (isset($twice)) && (isset($mail)) ) {
 		$match = db_select_one($db_tables['authors'], array('name','password'), array($user,$pass));
 		// error - 11: an author with same name and password already exists!
-		if (!$match['error']) {
+		if (!isset($match['error'])) {
 			$error = return_array('exec_signup', array('newuser'=>$user, 'newpass'=>$pass), $write['author_exists'], '', true, 11, '', 'exec_signup');
 			//print_r($error);
 			echo json_encode($error);
 		} else {
 			$insert = db_insert($db_tables['authors'], array("name" => $user, "password" => $pass, "mail" => $mail, "descripcion" => ''));
 			//success
-			if (!$insert['error']) {
+			if (!isset($insert['error'])) {
 				$success = return_array('exec_signup', array("id" =>$insert['data'], "name" => $user, "password" => $pass, "mail" => $mail, "descripcion" => ''), $write['success_creating_author'].', '.$insert['msg'], $insert['dosql'], false, '', '', '');
 				echo json_encode($success);
 				//print_r($success);
@@ -51,7 +51,7 @@
 		}
 	} else {
 		// error: 10 - POST/GET vars missing.
-		$error = return_array('exec_login', '', $write['data_mising'], '', true, 10, "Mising variables: \$_POST['newuser'] = '".$_POST['newuser']."', \$_POST['newpass'] = '".$_POST['newpass']."', \$_POST['twice'] = '".$_POST['twice']."', \$_POST['newmail'] = '".$_POST['newmail']."'.", 'exec_signup');
+		$error = return_array('exec_login', '', $write['data_mising'], '', true, 10, "Missing variables: \$_POST['newuser'] = '".$_POST['newuser']."', \$_POST['newpass'] = '".$_POST['newpass']."', \$_POST['twice'] = '".$_POST['twice']."', \$_POST['newmail'] = '".$_POST['newmail']."'.", 'exec_signup');
 		//print_r($error);
 		echo json_encode($error);
 	}
